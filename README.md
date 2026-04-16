@@ -45,6 +45,12 @@ python build.py
 
 最后根据软件提示登录、查看使用说明。
 
+
+
+喜欢本项目可以点一个star支持一下
+
+
+
 鸣谢：[LittleHeroZZZX/hdu-library-killer: 杭州电子科技大学图书馆抢座脚本](https://github.com/LittleHeroZZZX/hdu-library-killer)
 
 本脚本基于[LittleHeroZZZX/hdu-library-killer: 杭州电子科技大学图书馆抢座脚本](https://github.com/LittleHeroZZZX/hdu-library-killer)改写
