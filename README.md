@@ -1,29 +1,26 @@
-<!--
- * @Author: littleherozzzx zhou.xin2022.code@outlook.com
- * @Date: 2023-02-02 16:38:29
- * @LastEditTime: 2023-02-02 17:09:25
- * @Software: VSCode
--->
 # 杭州电子科技大学图书馆抢座脚本
 
 ## 脚本介绍
 
-本脚本用于杭电图书馆自习室座位预约，目前支持自动登录、批量预约、定时预约等功能，有以下模块：
+本脚本用于杭电图书馆自习室座位预约，目前支持自动登录、批量预约、定时预约，立即抢座等功能，有以下模块：
 
 * 查看/添加/删除待选座位方案
 * 批量修改方案中预约时间
 * 定时抢座
+* 立即抢座
 
 **本脚本仅限用于个人图书馆预约座位，请勿恶意囤座位！**
 
+**使用本脚本有被封号的可能性，请谨慎使用！**
+
 ## 运行说明
 
-0. 本脚本基于Python 3.10编写，请先安装Python 3.10。
+0. 本脚本基于Python 3.14编写，请先安装Python 3.14。
 1. 克隆本项目
 
 ``` shell
-git https://github.com/LittleHeroZZZX/hdu-library-killer.git
-cd hdu-library-killer
+git clone https://github.com/stormmmg/HDU-Library-SeatHunter.git
+cd HDU-Library-SeatHunter
 ```
 
 2. 安装依赖项
@@ -38,5 +35,17 @@ pip install -r requirements.txt
 python main.py
 ```
 
-4. 根据软件提示登录、查看使用说明。
+4. 运行不了的，release里有exe版本。
+
+5. 如有需要，构建exe命令
+
+``` shell
+python build.py
+```
+
+最后根据软件提示登录、查看使用说明。
+
+鸣谢：[LittleHeroZZZX/hdu-library-killer: 杭州电子科技大学图书馆抢座脚本](https://github.com/LittleHeroZZZX/hdu-library-killer)
+
+本脚本基于[LittleHeroZZZX/hdu-library-killer: 杭州电子科技大学图书馆抢座脚本](https://github.com/LittleHeroZZZX/hdu-library-killer)改写
 

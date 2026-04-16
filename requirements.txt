@@ -1,6 +1,7 @@
-prettytable==3.6.0
-pwinput==1.0.2
+prettytable>=3.6.0
+pwinput>=1.0.2
 pywin32; sys_platform == 'win32'
-PyYAML==6.0
-requests==2.28.1
-urllib3==1.26.14
+PyYAML>=6.0.2
+requests>=2.28.1
+urllib3>=1.26.14
+playwright>=1.40.0

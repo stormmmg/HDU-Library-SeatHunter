@@ -23,7 +23,6 @@ data:
 seat_list: []
 session:
   headers:
-  headers:
     Accept: '*/*'
     Accept-Encoding: gzip, deflate, br
     Accept-Language: en-US,en;q=0.5
@@ -45,7 +44,6 @@ urls:
   login: https://hdu.huitu.zhishulib.com/User/Index/login
   query_seats: https://hdu.huitu.zhishulib.com/Seat/Index/searchSeats
   query_rooms: https://hdu.huitu.zhishulib.com/Space/Category/list
-  index: https://hdu.huitu.zhishulib.com/
   index: https://hdu.huitu.zhishulib.com/
 settings:
   interval: 3

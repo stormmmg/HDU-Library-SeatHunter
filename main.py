@@ -6,6 +6,7 @@ Software: VSCode
 '''
 import os
 import sys
+import ast
 
 from time import sleep
 from pwinput import pwinput
@@ -18,12 +19,19 @@ from prettytable import PrettyTable
 from argparse import ArgumentParser
 
 
+def get_app_dir():
+    """获取应用程序根目录（兼容PyInstaller打包）"""
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
+
+
 
 
 
 class UserInterface:
     def __init__(self, args=None):
-        self.configFile = "./config/config.yaml" if args is None else args.config
+        self.configFile = os.path.join(get_app_dir(), "config", "config.yaml") if args is None else args.config
         self.killer = Killer()
         self.funcs = [self.changePlan, self.changeTime, self.startNow, self.startAt,self.setSettings, self.help, self.exit]
     
@@ -103,7 +111,7 @@ class UserInterface:
         try:
             index = input("请输入要删除的预约序号（多个用英文逗号隔开，如1,2,3，输入0表示修改所有方案）：")
             index = index+"," if index[-1] != "," else index
-            index = eval(f"({index})")
+            index = ast.literal_eval(f"({index})")
             if any([x > len(self.killer.plans) for x in index]):
                 raise Exception(f"序号超出范围，当前共有{len(self.killer.plans)}个方案")
             if any([x < 0 for x in index]):
@@ -176,10 +184,11 @@ class UserInterface:
             sleep(1)
     
     def help(self):
+        help_path = os.path.join(get_app_dir(), "docs", "help.md")
         if sys.platform == "win32":
-            os.startfile(r"docs\help.md")
+            os.startfile(help_path)
         else:
-            with open("docs/help.md", "r") as f:
+            with open(help_path, "r") as f:
                 print(f.read())
         input("按回车键返回")
     
@@ -251,7 +260,7 @@ class UserInterface:
             seatsInfo = self.killer.getSeatsByRoomAndFloor(roomName, floorName)
             seats = input("请输入座位号（多个座位号用逗号隔开，如1,2,3）：")
             seats = seats+"," if seats[-1] != "," else seats
-            seats = eval(f"({seats})")
+            seats = ast.literal_eval(f"({seats})")
             seatsDictList = []
             for seat in seats:
                 seat = str(seat)
@@ -289,7 +298,7 @@ class UserInterface:
         try:
             index = input("请输入要删除的预约序号（多个用英文逗号隔开，如1,2,3）：")
             index = index+"," if index[-1] != "," else index
-            index = eval(f"({index})")
+            index = ast.literal_eval(f"({index})")
             if any([x > len(self.killer.plans) for x in index]):
                 raise Exception(f"序号超出范围，当前共有{len(self.killer.plans)}个方案")
             if any([x < 1 for x in index]):
